@@ -27,8 +27,8 @@ typedef struct
 	uint8_t status;
 }wheel_speed;
 /* Exported constants --------------------------------------------------------*/
-#define SUCCESS    1
-#define FAILURE    0
+#define SUCCESS_A    1
+#define FAILURE_A    0
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
 void setOrigin(float pos_x, float pos_y);

@@ -47,7 +47,7 @@ class motionSt
 	  static float   actAng;
 	  static m_status status;
 	public:
-    static int32_t ex_vell;	
+    static float ex_vell;	
 	  static float   exAngle;  
 	  static float   ward;
 	

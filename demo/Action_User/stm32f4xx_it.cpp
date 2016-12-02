@@ -30,7 +30,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_it.h"
 #include "motionCtr.h"
-
+#include "stm32f4xx_tim.h"
 /** @addtogroup Template_Project
   * @{
   */
@@ -50,7 +50,13 @@
 void USART1_IRQHandler(void)
 {
 }
-
+void TIM2_IRQHandler(void)
+{
+	if(TIM_GetITStatus(TIM2, TIM_IT_Update)==SET)
+  {	
+		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
+  }	 
+}
 /**
   * @brief   This function handles NMI exception.
   * @param  None

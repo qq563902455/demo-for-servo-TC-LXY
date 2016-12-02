@@ -12,15 +12,22 @@
 /* Includes -------------------------------------------------------------------*/
 #include "motionCtr.h"
 #include "Action_motion_control.h"
+#include "action_driver.h"
 /* Private  typedef -----------------------------------------------------------*/
 /* Private  define ------------------------------------------------------------*/
+
+#define CNT_CYCLE 30000
+#define DIAMETER_WHEEL 127
+
+#define PI 3.1415926f
+
 /* Private  macro -------------------------------------------------------------*/
 /* Private  variables ---------------------------------------------------------*/
 int32_t motionSt::pos[2]={0,0};
 float   motionSt::actAng=0.0f;
 m_status motionSt::status=IDLE;
 
-int32_t motionSt::ex_vell=0;	
+float motionSt::ex_vell=0;	
 float   motionSt::exAngle=0.0f;  
 float   motionSt::ward=0.0f;
 
@@ -28,25 +35,40 @@ float   motionSt::ward=0.0f;
 /* Extern   function prototypes -----------------------------------------------*/
 /* Private  function prototypes -----------------------------------------------*/
 /* Private  functions ---------------------------------------------------------*/
+
+static inline int32_t mmTcnt(float val)
+{
+	return val/PI/DIAMETER_WHEEL*CNT_CYCLE;
+}
+
 /* Exported function prototypes -----------------------------------------------*/
 /* Exported functions ---------------------------------------------------------*/
-inline void motionSt::oLine(int32_t rotate)
+void motionSt::oLine(int32_t rotate)
 {
-	basicLine(ex_vell,ward,rotate,actAng);
+	wheel_speed speed;
+	speed=basicLine(ex_vell,ward,rotate,actAng);
+	
+	Action_Set_Velocity(1,mmTcnt(speed.v1));
+	Action_Set_Velocity(2,mmTcnt(speed.v2));
+	Action_Set_Velocity(3,mmTcnt(speed.v3));
 }
-inline void motionSt::origin(int32_t x,int32_t y)
+void motionSt::origin(int32_t x,int32_t y)
 {
 	setOrigin(x,y);
 }
-inline void motionSt::cLine(void)
+void motionSt::cLine(void)
 {
-	closeLoopLine(ex_vell,ward,exAngle,actAng,pos[0],pos[1]);
+	wheel_speed speed;
+	speed=closeLoopLine(ex_vell,ward,exAngle,actAng,pos[0],pos[1]);
+	Action_Set_Velocity(1,mmTcnt(speed.v1));
+	Action_Set_Velocity(2,mmTcnt(speed.v2));
+	Action_Set_Velocity(3,mmTcnt(speed.v3));
 }
-inline void motionSt::point(int32_t x,int32_t y)
+void motionSt::point(int32_t x,int32_t y)
 {
 	wheel_speed speed;
 	speed=point_to_point(ex_vell,x,y,pos[0], pos[1],exAngle,actAng);
-	if(speed.status!=SUCCESS)
+	if(speed.status!=SUCCESS_A)
 	{
 		status=BUSY;
 	}
@@ -54,6 +76,9 @@ inline void motionSt::point(int32_t x,int32_t y)
 	{
 		status=IDLE;
 	}
+	Action_Set_Velocity(1,mmTcnt(speed.v1));
+	Action_Set_Velocity(2,mmTcnt(speed.v2));
+	Action_Set_Velocity(3,mmTcnt(speed.v3));
 }
 int32_t motionSt::operator[](uint8_t num)
 {

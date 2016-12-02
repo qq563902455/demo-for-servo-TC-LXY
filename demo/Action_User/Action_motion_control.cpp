@@ -71,7 +71,7 @@ wheel_speed basicLine(float vel, float ward, float Rotate,float selfAngle)
   speed_out.v2 = vel*(float)cos(ANGLE_TO_RAD(ward+120)) + Rotate;
   speed_out.v3 = vel*(float)cos(ANGLE_TO_RAD(120-ward)) + Rotate;
 
-  speed_out.status = FAILURE;
+  speed_out.status = FAILURE_A;
   return speed_out;
 }
 
@@ -185,7 +185,7 @@ wheel_speed closeLoopLine(float vel,    float ward,
 	}
 	
 	speed_out=basicLine(vel / (float)cos(ANGLE_TO_RAD(PID_pos_out)), ward + PID_pos_out, PID_ang_out, act_Ang);
-	speed_out.status = FAILURE;
+	speed_out.status = FAILURE_A;
 	return speed_out;
 }
 
@@ -197,8 +197,8 @@ wheel_speed closeLoopLine(float vel,    float ward,
 * @param  ex_Ang：参考值
 * @param  act_Ang：实际值
 * @retval wheel_speed:底盘的速度分配
-          SUCCESS:成功到达终点
-          FAILURE:还未到达终点
+          SUCCESS_A:成功到达终点
+          FAILURE_A:还未到达终点
 * @author ACTION
 */
 wheel_speed point_to_point(float vel,
@@ -269,7 +269,7 @@ wheel_speed point_to_point(float vel,
 		/* 判断当前状态是否满足停下来 */
 		if (fabs(distance) < END_ERR_ALLOW&&fabs(act_vel) < END_VEL_ALLOW)
 		{
-			speed_out.status = SUCCESS;	
+			speed_out.status = SUCCESS_A;	
 			flag = 0;
 			flag_start = 0;
 			speed_out.v1 = 0;
@@ -278,12 +278,12 @@ wheel_speed point_to_point(float vel,
 			return speed_out;
 		}
 		/* 不满足停下来的条件 */
-		speed_out.status = FAILURE;		
+		speed_out.status = FAILURE_A;		
 		speed_out = closeLoopLine(ex_vel, ward, ex_Ang, act_Ang, pos_x, pos_y);
 		return speed_out;
 	}
 	/* 未进入减速范围，不进行终点闭环 */
-	speed_out.status = FAILURE;
+	speed_out.status = FAILURE_A;
 	speed_out = closeLoopLine(vel, ward, ex_Ang, act_Ang, pos_x, pos_y);
 	return speed_out;
 }
