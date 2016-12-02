@@ -491,16 +491,13 @@ void Action_Get_Motorstatus(uint8_t driverNum,uint16_t status)
 备注:CANOpen协议中传输数据是低位在前
 ************************************************/
 uint8_t Action_Check_Error(CanRxMsg* RxMessage,uint8_t drive_num){
-	    static int32_t Speed_Value=0;
-	    static int32_t AbsolutePosition_Value=0;
-	    static int32_t RelativePosition_Value=0;	
-     	static int32_t Current_Value=0;	
 	    static uint16_t Index;
 	    static uint8_t  Subindex,SDO; 	
 	
 			SDO      = RxMessage->Data[3] & 0xff;
 			Index    =(RxMessage->Data[1]<<8 &0xffff)  + (RxMessage->Data[2] &0xffff);
 		  Subindex = RxMessage->Data[0] & 0Xff;    	
+	    Subindex = Subindex;
 			if((RxMessage->StdId - drive_num ) == 0x580 )
 			{			
 				switch(SDO)
@@ -511,7 +508,6 @@ uint8_t Action_Check_Error(CanRxMsg* RxMessage,uint8_t drive_num){
 								 case COMMAND_SPECIFIER_NOT_VALID:
 										 sdo_error.command_specifier_not_valid=1; //此命令无效
 								     return 1;
-									 break;
 							 }		
 						break;
 					case SDO_LOAD_4:
@@ -519,6 +515,7 @@ uint8_t Action_Check_Error(CanRxMsg* RxMessage,uint8_t drive_num){
 				}
     	}
 	    else return 0;	
+			return 1;
 }
 
 
@@ -539,7 +536,8 @@ uint16_t Action_Get_Motor_Feedback(CanRxMsg* RxMessage,uint8_t drive_num ){
 	
 			SDO      = RxMessage->Data[3] & 0xff;
 			Index    =(RxMessage->Data[1]<<8 &0xffff)  + (RxMessage->Data[2] &0xffff);
-		  Subindex = RxMessage->Data[0] & 0Xff;    	
+		  Subindex = RxMessage->Data[0] & 0Xff;  
+      Subindex = Subindex;	
 			if((RxMessage->StdId - drive_num ) == 0x580 )
 			{	
 	
@@ -552,28 +550,25 @@ uint16_t Action_Get_Motor_Feedback(CanRxMsg* RxMessage,uint8_t drive_num ){
 								 AbsolutePosition_Value = RxMessage->Data[7] + (RxMessage->Data[6] << 8 ) + (RxMessage->Data[5] <<16 ) + (RxMessage->Data[4] << 24 );
 							   Set_AbsolutePosition_Value(AbsolutePosition_Value); 								
 								 return POSITION_ACTUAL_VALUE;
-								break;
 							case ACTUAL_POSITION_INTERNAL_UNIT://相对位置
 								 RelativePosition_Value = RxMessage->Data[7] + (RxMessage->Data[6] << 8 ) + (RxMessage->Data[5] <<16 ) + (RxMessage->Data[4] << 24 );
 								 Set_RelativePosition_Value(RelativePosition_Value);  
 								 return ACTUAL_POSITION_INTERNAL_UNIT;					
-								break;
 							case VELOCITY_SENSOR_ACTUAL_VALUE://速度
 								 Speed_Value           = RxMessage->Data[7] + (RxMessage->Data[6] << 8 ) + (RxMessage->Data[5] <<16 ) + (RxMessage->Data[4] << 24 );
 									Set_Speed_Value(Speed_Value);	
 									return 	VELOCITY_SENSOR_ACTUAL_VALUE;							
-								break;
 							case CURRENT_ACTUAL_VALUE://电流
 								 Current_Value        = RxMessage->Data[7] + (RxMessage->Data[6] << 8 ) + (RxMessage->Data[5] <<16 ) + (RxMessage->Data[4] << 24 );
 								 Set_Current_Value(Current_Value);	
 								 return 	CURRENT_ACTUAL_VALUE;							
-								break;
 						}
 						break;				
 				}
     	}
-	    else return 0;	
-
+	    else 
+				return 0;	
+     return 1;
 }
 int Speed_Value=0;
 void Set_Speed_Value(int tmp){
