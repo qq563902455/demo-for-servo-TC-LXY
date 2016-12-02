@@ -1,0 +1,10 @@
+.\szw_stm32f407\main.o: ..\Action_User\main.c
+.\szw_stm32f407\main.o: ..\Action_User\main.h
+.\szw_stm32f407\main.o: ..\Libraries\CMSIS\stm32f4xx.h
+.\szw_stm32f407\main.o: ..\Libraries\CMSIS\core_cm4.h
+.\szw_stm32f407\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\szw_stm32f407\main.o: ..\Libraries\CMSIS\core_cmInstr.h
+.\szw_stm32f407\main.o: ..\Libraries\CMSIS\core_cmFunc.h
+.\szw_stm32f407\main.o: ..\Libraries\CMSIS\core_cm4_simd.h
+.\szw_stm32f407\main.o: ..\Libraries\CMSIS\system_stm32f4xx.h
+.\szw_stm32f407\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
