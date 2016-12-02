@@ -1,5 +1,9 @@
 Dependencies for Project 'demo', Target 'ACTION': (DO NOT MODIFY !)
-F (..\Action_User\main.cpp)(0x584158B1)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\ -I..\Action_User -I..\Libraries\CMSIS -I..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I..\MDK-ARM --exceptions-I D:\software_professional\keil_ARM\ARM\RV31\INC-I D:\software_professional\keil_ARM\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I D:\software_professional\keil_ARM\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-DSTM32F407xx -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -o .\szw_stm32f407\main.o --omf_browse .\szw_stm32f407\main.crf --depend .\szw_stm32f407\main.d)
+F (..\Action_User\motionCtr.cpp)(0x58417E5A)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\ -I..\Action_User -I..\Libraries\CMSIS -I..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I..\MDK-ARM --exceptions-I D:\software_professional\keil_ARM\ARM\RV31\INC-I D:\software_professional\keil_ARM\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I D:\software_professional\keil_ARM\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-DSTM32F407xx -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -o .\szw_stm32f407\motionctr.o --omf_browse .\szw_stm32f407\motionctr.crf --depend .\szw_stm32f407\motionctr.d)
+I (..\Action_User\motionCtr.h)(0x58417EDB)
+I (D:\software_professional\keil_ARM\ARM\ARMCC\include\stdint.h)(0x52FDD27E)
+I (..\Action_User\Action_motion_control.h)(0x58415EDF)
+F (..\Action_User\main.cpp)(0x58415D53)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\ -I..\Action_User -I..\Libraries\CMSIS -I..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I..\MDK-ARM --exceptions-I D:\software_professional\keil_ARM\ARM\RV31\INC-I D:\software_professional\keil_ARM\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I D:\software_professional\keil_ARM\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-DSTM32F407xx -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -o .\szw_stm32f407\main.o --omf_browse .\szw_stm32f407\main.crf --depend .\szw_stm32f407\main.d)
 I (..\Action_User\main.h)(0x584158B1)
 I (..\Libraries\CMSIS\stm32f4xx.h)(0x584158B1)
 I (..\Libraries\CMSIS\core_cm4.h)(0x584158B1)
@@ -43,6 +47,20 @@ I (..\Libraries\CMSIS\core_cmInstr.h)(0x584158B1)
 I (..\Libraries\CMSIS\core_cmFunc.h)(0x584158B1)
 I (..\Libraries\CMSIS\core_cm4_simd.h)(0x584158B1)
 I (..\Libraries\CMSIS\system_stm32f4xx.h)(0x584158B1)
+F (..\Action_User\Action_motion_control.cpp)(0x58415DD7)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\ -I..\Action_User -I..\Libraries\CMSIS -I..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I..\MDK-ARM --exceptions-I D:\software_professional\keil_ARM\ARM\RV31\INC-I D:\software_professional\keil_ARM\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I D:\software_professional\keil_ARM\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-DSTM32F407xx -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -o .\szw_stm32f407\action_motion_control.o --omf_browse .\szw_stm32f407\action_motion_control.crf --depend .\szw_stm32f407\action_motion_control.d)
+I (D:\software_professional\keil_ARM\ARM\ARMCC\include\stdint.h)(0x52FDD27E)
+I (..\Action_User\Action_motion_control.h)(0x58415EDF)
+I (D:\software_professional\keil_ARM\ARM\ARMCC\include\math.h)(0x52FDD27E)
+F (..\Action_User\stm32f4xx_it.cpp)(0x584170BF)(--cpp -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\ -I..\Action_User -I..\Libraries\CMSIS -I..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I..\MDK-ARM --exceptions-I D:\software_professional\keil_ARM\ARM\RV31\INC-I D:\software_professional\keil_ARM\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I D:\software_professional\keil_ARM\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-DSTM32F407xx -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -o .\szw_stm32f407\stm32f4xx_it.o --omf_browse .\szw_stm32f407\stm32f4xx_it.crf --depend .\szw_stm32f407\stm32f4xx_it.d)
+I (..\Action_User\stm32f4xx_it.h)(0x584158B1)
+I (..\Libraries\CMSIS\stm32f4xx.h)(0x584158B1)
+I (..\Libraries\CMSIS\core_cm4.h)(0x584158B1)
+I (D:\software_professional\keil_ARM\ARM\ARMCC\include\stdint.h)(0x52FDD27E)
+I (..\Libraries\CMSIS\core_cmInstr.h)(0x584158B1)
+I (..\Libraries\CMSIS\core_cmFunc.h)(0x584158B1)
+I (..\Libraries\CMSIS\core_cm4_simd.h)(0x584158B1)
+I (..\Libraries\CMSIS\system_stm32f4xx.h)(0x584158B1)
+I (..\Action_User\motionCtr.h)(0x58417EDB)
 F (..\Libraries\STM32F4xx_StdPeriph_Driver\src\misc.c)(0x584158B1)(--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I..\ -I..\Action_User -I..\Libraries\CMSIS -I..\Libraries\STM32F4xx_StdPeriph_Driver\inc -I..\MDK-ARM --exceptions-I D:\software_professional\keil_ARM\ARM\RV31\INC-I D:\software_professional\keil_ARM\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I D:\software_professional\keil_ARM\ARM\PACK\Keil\STM32F4xx_DFP\2.3.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-DSTM32F407xx -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -o .\szw_stm32f407\misc.o --omf_browse .\szw_stm32f407\misc.crf --depend .\szw_stm32f407\misc.d)
 I (..\Libraries\STM32F4xx_StdPeriph_Driver\inc\misc.h)(0x584158B1)
 I (..\Libraries\CMSIS\stm32f4xx.h)(0x584158B1)

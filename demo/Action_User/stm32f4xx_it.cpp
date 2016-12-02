@@ -29,7 +29,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_it.h"
-//#include "main.h"
+#include "motionCtr.h"
 
 /** @addtogroup Template_Project
   * @{
@@ -45,6 +45,11 @@
 /******************************************************************************/
 /*            Cortex-M4 Processor Exceptions Handlers                         */
 /******************************************************************************/
+
+
+void USART1_IRQHandler(void)
+{
+}
 
 /**
   * @brief   This function handles NMI exception.

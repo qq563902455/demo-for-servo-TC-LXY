@@ -143,7 +143,7 @@
             <RestoreTracepoints>1</RestoreTracepoints>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>1</TargetSelection>
+          <TargetSelection>6</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -157,7 +157,7 @@
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
             <InitializationFile></InitializationFile>
-            <Driver>BIN\UL2CM3.DLL</Driver>
+            <Driver>Segger\JL2CM3.dll</Driver>
           </TargetDlls>
         </DebugOption>
         <Utilities>
@@ -405,6 +405,11 @@
           <GroupName>User</GroupName>
           <Files>
             <File>
+              <FileName>motionCtr.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\Action_User\motionCtr.cpp</FilePath>
+            </File>
+            <File>
               <FileName>main.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\Action_User\main.cpp</FilePath>
@@ -423,6 +428,16 @@
               <FileName>action_driver.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\Action_User\action_driver.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Action_motion_control.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\Action_User\Action_motion_control.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_it.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\Action_User\stm32f4xx_it.cpp</FilePath>
             </File>
           </Files>
         </Group>
