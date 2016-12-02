@@ -42,12 +42,9 @@ void Action_Get_Motorstatus(uint8_t driverNum,uint16_t status);
 uint8_t Action_Check_Error(CanRxMsg* RxMessage,uint8_t drive_num);
 uint16_t Action_Get_Motor_Feedback(CanRxMsg* RxMessage,uint8_t drivernum);
 void Actin_Config_Torque(uint8_t driverNum,int16_t max_torque);
-void Action_Set_Torque( uint8_t driverNum,int16_t torque )    ;
+void Action_Set_Torque( uint8_t driverNum,int16_t torque );
 
-typedef enum{
-FASLE =0,
-TRUE=!FASLE
-}bool;
+
 
 
 
