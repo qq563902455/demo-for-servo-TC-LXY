@@ -1,3 +1,11 @@
+#ifndef _CAN_
+#define _CAN_
+
+#ifdef __cplusplus  //为C提供接口
+extern "C"
+{
+#endif
+	
 #include "stm32f4xx_can.h"
 
 #define CAN_ENABLE 1
@@ -18,5 +26,12 @@ uint8_t CAN_TxMsg(CAN_TypeDef* CANx,
 				  uint8_t * buf,
 				  uint8_t len);
 
+void CAN1_RX0_IRQHandler(void);
 
+
+#ifdef __cplusplus //为C提供接口
+}
+#endif	
+
+#endif
 

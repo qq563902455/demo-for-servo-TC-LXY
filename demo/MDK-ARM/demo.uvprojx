@@ -405,11 +405,6 @@
           <GroupName>User</GroupName>
           <Files>
             <File>
-              <FileName>motionCtr.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\Action_User\motionCtr.cpp</FilePath>
-            </File>
-            <File>
               <FileName>main.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\Action_User\main.cpp</FilePath>
@@ -420,14 +415,14 @@
               <FilePath>..\Action_User\timer.cpp</FilePath>
             </File>
             <File>
-              <FileName>gpio.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\Action_User\gpio.cpp</FilePath>
+              <FileName>stm32f4xx_it.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Action_User\stm32f4xx_it.c</FilePath>
             </File>
             <File>
-              <FileName>action_driver.cpp</FileName>
+              <FileName>motionCtr.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\Action_User\action_driver.cpp</FilePath>
+              <FilePath>..\Action_User\motionCtr.cpp</FilePath>
             </File>
             <File>
               <FileName>Action_motion_control.cpp</FileName>
@@ -435,14 +430,19 @@
               <FilePath>..\Action_User\Action_motion_control.cpp</FilePath>
             </File>
             <File>
-              <FileName>stm32f4xx_it.cpp</FileName>
+              <FileName>action_driver.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\Action_User\stm32f4xx_it.cpp</FilePath>
+              <FilePath>..\Action_User\action_driver.cpp</FilePath>
             </File>
             <File>
               <FileName>can.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Action_User\can.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\Action_User\usart.cpp</FilePath>
             </File>
           </Files>
         </Group>

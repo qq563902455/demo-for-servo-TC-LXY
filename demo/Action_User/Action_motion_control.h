@@ -38,9 +38,9 @@ wheel_speed basicLine(float vel, float ward, float Rotate,float selfAngle);
 wheel_speed closeLoopLine(float vel,float ward,float ex_Ang, float act_Ang,float pos_x,float pos_y);
 
 wheel_speed point_to_point(float vel,
-	                       float end_posx, float end_posy,
-	                       float pos_x, float pos_y,
-	                       float ex_Ang, float act_Ang);
+	                         float end_posx, float end_posy,
+	                         float pos_x,    float pos_y,
+	                         float ex_Ang,   float act_Ang);
 #ifdef __cplusplus //为C提供接口
 }
 #endif

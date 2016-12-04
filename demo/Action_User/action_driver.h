@@ -1,6 +1,13 @@
+#ifndef _ACTION_DRIVER_
+#define _ACTION_DRIVER_
+
 
 #include "can.h"
 
+#ifdef __cplusplus  //为C提供接口
+extern "C"
+{
+#endif
 
 typedef struct
 {
@@ -44,24 +51,6 @@ uint16_t Action_Get_Motor_Feedback(CanRxMsg* RxMessage,uint8_t drivernum);
 void Actin_Config_Torque(uint8_t driverNum,int16_t max_torque);
 void Action_Set_Torque( uint8_t driverNum,int16_t torque );
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 void Set_Speed_Value(int tmp);
 void Set_AbsolutePosition_Value(int tmp);
 void Set_RelativePosition_Value(int tmp);
@@ -73,4 +62,9 @@ int32_t Get_RelativePosition_Value(void);
 int32_t Get_Current_Value(void);
 
 
+#ifdef __cplusplus //为C提供接口
+}
+#endif	
+
+#endif
 

@@ -458,3 +458,22 @@ void TIM_Delayms(TIM_TypeDef * TIMx, uint32_t DelayMs)
 		TIM_Delay100us(TIMx,10);
 	}
 }
+
+static uint8_t timeFlag=0;
+void TIM2_IRQHandler(void)
+{
+	if(TIM_GetITStatus(TIM2, TIM_IT_Update)==SET)
+  {	
+		TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
+		timeFlag=1;
+  }	 
+}
+uint8_t getTimeFlag(void)
+{
+	if(timeFlag)
+	{
+		timeFlag=0;
+		return 1;
+	}
+	return 0;
+}

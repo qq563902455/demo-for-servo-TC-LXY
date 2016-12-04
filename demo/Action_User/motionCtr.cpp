@@ -23,7 +23,7 @@
 
 /* Private  macro -------------------------------------------------------------*/
 /* Private  variables ---------------------------------------------------------*/
-int32_t motionSt::pos[2]={0,0};
+float   motionSt::pos[2]={0,0};
 float   motionSt::actAng=0.0f;
 m_status motionSt::status=IDLE;
 
@@ -80,7 +80,7 @@ void motionSt::point(int32_t x,int32_t y)
 	Action_Set_Velocity(2,mmTcnt(speed.v2));
 	Action_Set_Velocity(3,mmTcnt(speed.v3));
 }
-int32_t motionSt::operator[](uint8_t num)
+float& motionSt::operator[](uint8_t num)
 {
 	if(num<=2)
 		return pos[num];

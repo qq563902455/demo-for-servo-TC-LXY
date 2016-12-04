@@ -52,7 +52,7 @@ static float err_pos_last = 0, err_ang_last = 0;
 * @param  Vel:车的和速度（正数 Vel>0）
 * @param  ward:车的行进方向
                 -180到+180
-* @param  Rotate:车自身的旋转速度（正数时右旋 俯视图）
+* @param  Rotate:车自身的旋转速度（正数时左旋 俯视图）
 * @param  selfAngle:车自身的姿态角度
 * @retval wheel_speed:底盘应该达到的速度
 * @author ACTION
@@ -63,8 +63,8 @@ wheel_speed basicLine(float vel, float ward, float Rotate,float selfAngle)
   /* 计算当底盘旋转后底盘应该的前进方向 */
   ward = ward - selfAngle; 
 
-  /* 坐标系转换 */
-  ward=-ward;
+//  /* 坐标系转换 */
+//  ward=ward;
 
   /* 分解计算出三个轮的速度 */
   speed_out.v1 = vel*(float)cos(ANGLE_TO_RAD(ward)) + Rotate;

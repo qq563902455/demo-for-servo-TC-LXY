@@ -1,10 +1,10 @@
 /**
   ******************************************************************************
-  * @file    *.h
-  * @author  Lxy Action
-  * @version 
-  * @date   
-  * @brief   This file contains the headers of 
+  * @file    usart.h
+  * @author  Tian Chang & Luo Xiaoyi 
+  * @version V1.0
+  * @date    2016.10.26
+  * @brief   This file contains the headers of usart.cpp
   ******************************************************************************
   * @attention
   *
@@ -16,52 +16,46 @@
   */ 
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __CONTROL_H
-#define __CONTROL_H
+#ifndef __USART_H
+#define __USART_H
 
 /* C&C++ ---------------------------------------------------------------------*/
 #ifdef __cplusplus
  extern "C" {
 #endif
 
+//#define DEBUG	 
 /* Includes ------------------------------------------------------------------*/
-#include "stdint.h"	 
 /* Exported types ------------------------------------------------------------*/
-enum m_status
-{
-	BUSY=0,
-	IDLE
-};
 /* Exported constants --------------------------------------------------------*/
 /* Exported macro ------------------------------------------------------------*/
+	 
+#ifdef DEBUG
+	#define cout (getUsartOut())
+	#define endl ("\r\n")	 	 
+#endif	 
 /* Exported functions ------------------------------------------------------- */
+void USART1_INIT(void);	 
+void USART1_IRQHandler(void);	 
 #ifdef __cplusplus
 }
+/* Exported functions ------------------------------------------------------- */
+  #ifdef DEBUG 
+  //为实现cout,而实现的一个类
+	class _out_stream
+	{
+		public:
+			//重载需要使用的运算符
+			const _out_stream& operator<<(int value) const;
+			const _out_stream& operator<<(float value) const;
+			const _out_stream& operator<<(char value) const;
+			const _out_stream& operator<<(const char* value) const;
+	};
+  _out_stream& getUsartOut(void);
+  #endif
 #endif
-/* Includes C++ ---------------------------------------------------------------*/
-/* Exported Class -------------------------------------------------------------*/
-class motionSt
-{
-	private:
-		static float pos[2];
-	  static float   actAng;
-	  static m_status status;
-	public:
-    static float   ex_vell;	
-	  static float   exAngle;  
-	  static float   ward;
-	
-	  void oLine(int32_t rotate=0);
-	  
-	  void origin(int32_t x=motionSt::pos[0],int32_t y=motionSt::pos[1]);
-	  void cLine(void);
-	  void point(int32_t,int32_t);
-	
-	  inline m_status getStatus(void) const{return  motionSt::status;}
-	  inline float    getActAng(void) const{return  motionSt::actAng;}
-	  inline void     setActAng(float ang){motionSt::actAng=ang;}
-	
-	  float&  operator[] (uint8_t);
-};
+
+
 #endif
+
 /******************* (C) COPYRIGHT 2016 ACTION *****END OF FILE****/

@@ -1,6 +1,11 @@
 #ifndef __timer_h
 #define __timer_h
 
+#ifdef __cplusplus  //为C提供接口
+extern "C"
+{
+#endif
+	
 #include "stm32f4xx_tim.h"
 //宏延时函数
 #define  SYSCLK        168         //指明MCU工作频率为168MHz
@@ -16,7 +21,15 @@ void TIM_Init(TIM_TypeDef * TIMx, uint16_t arr, uint16_t psr,uint16_t prepri,uin
 void TIM_Delayms(TIM_TypeDef * TIMx, uint32_t DelayMs);
 void TIM_Delayus(TIM_TypeDef * TIMx, uint16_t Delayus);
 void TIM_Delay100us(TIM_TypeDef * TIMx, uint16_t Delay100us);
-
+void TIM2_IRQHandler(void);
+	
+uint8_t getTimeFlag(void);	
+	
+#ifdef __cplusplus //为C提供接口
+}
+#endif	
+	
+	
 #endif
 
 

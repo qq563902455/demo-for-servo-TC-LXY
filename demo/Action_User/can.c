@@ -450,16 +450,22 @@ uint8_t CAN_RxMsg(CAN_TypeDef* CANx,
 	*StdId=RxMessage.StdId;
 	return 1;
 }
-
-
-
-union CANDATA
+void CAN1_RX0_IRQHandler(void)
 {
-	uint8_t data4[8];
-	uint16_t data3[4];
-	unsigned char  data2[8];               /* Data field */
-	int32_t data1[2];
-	uint64_t data;
-};
+	  uint32_t StdId;
+	  uint8_t  buffer[8];
+		CAN_RxMsg(CAN1, &StdId,buffer,8);
 
+		CAN_ClearFlag(CAN1,CAN_FLAG_EWG);
+		CAN_ClearFlag(CAN1,CAN_FLAG_EPV);
+		CAN_ClearFlag(CAN1,CAN_FLAG_BOF);
+		CAN_ClearFlag(CAN1,CAN_FLAG_LEC);
+
+		CAN_ClearFlag(CAN1,CAN_FLAG_FMP0);
+		CAN_ClearFlag(CAN1,CAN_FLAG_FF0);
+		CAN_ClearFlag(CAN1,CAN_FLAG_FOV0);
+		CAN_ClearFlag(CAN1,CAN_FLAG_FMP1);
+		CAN_ClearFlag(CAN1,CAN_FLAG_FF1);
+		CAN_ClearFlag(CAN1,CAN_FLAG_FOV1);
+}
 
