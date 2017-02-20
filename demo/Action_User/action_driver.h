@@ -37,6 +37,27 @@ typedef struct
 #define RELATIVE_POSITION 3
 #define ABSOLUATE_POSITION 4
 
+#define RPDO1 0x1400
+#define RPDO2 0x1401
+#define RPDO3 0x1402
+#define RPDO4 0x1403
+
+#define TPDO1 0x1800
+#define TPDO2 0x1801
+#define TPDO3 0x1802
+#define TPDO4 0x1803
+
+void Action_SetTPdo(uint8_t drivernum,uint16_t pdo,uint8_t enable);
+void Action_SetRPdo(uint8_t drivernum,uint16_t pdo,uint8_t enable);
+void Action_SetTPdoComType(uint8_t drivernum,uint16_t pdo,uint8_t type);
+void Action_SetRPdoComType(uint8_t drivernum,uint16_t pdo,uint8_t type);
+void Action_SetTPdoBanTime(uint8_t drivernum,uint16_t pdo,uint8_t time);
+void Action_SetTPdoEventCnt(uint8_t drivernum,uint16_t pdo,uint8_t event_cnt);
+void Action_SetTPdoMap(uint8_t drivernum,uint16_t pdo);
+void Action_SetRPdoMap(uint8_t drivernum,uint16_t pdo);
+void Action_PDOVelConfig(uint8_t drivernum,uint16_t pdo,uint32_t acc,uint32_t dec);
+uint8_t Action_PDOReData(CanRxMsg* RxMessage,uint8_t drivernum,uint16_t pdo);
+
 void Action_Set_Heartbeat_Tim(uint8_t drivernum,uint16_t heartbeat_time);
 void Action_Set_Operational_Mode(uint8_t drivernum);
 void Action_Enable_Driver(uint8_t driverNum,int8_t status);
@@ -61,6 +82,7 @@ int32_t Get_AbsolutePosition_Value(void);
 int32_t Get_RelativePosition_Value(void);
 int32_t Get_Current_Value(void);
 
+void Action_SendRemote(uint8_t drivernum,uint16_t pdo);
 
 #ifdef __cplusplus //为C提供接口
 }
